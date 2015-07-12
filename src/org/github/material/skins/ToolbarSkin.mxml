@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("org.github.material.Toolbar")]
+	</fx:Metadata>
+	
+	<fx:Declarations>
+		<s:DropShadowFilter id="dropShadow" quality="1" color="#000000" alpha="0.8" distance="0" blurX="{MaterialUtils.dp2px(8)}" blurY="{MaterialUtils.dp2px(8)}" strength="1" />
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import org.github.material.MaterialUtils;
+		]]>
+	</fx:Script>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="disabledWithControlBar" />
+		<s:State name="normalWithControlBar" />
+		<s:State name="disabled" />
+		<s:State name="normal" />
+	</s:states>
+	
+	<!-- background -->
+	<s:Rect left="0" right="0" top="0" bottom="0" filters="{dropShadow}">
+		<s:fill>
+			<s:SolidColor id="background_color" color="{MaterialUtils.primaryColor}" />
+		</s:fill>
+	</s:Rect>
+	
+	<!-- text -->
+	<s:Label id="titleDisplay" left="{MaterialUtils.dp2px(72)}" right="0" top="{MaterialUtils.dp2px(6)}" bottom="0" textAlign="left" verticalAlign="middle" fontFamily="RobotoMedium" fontSize="{MaterialUtils.dp2px(20)}" />
+	
+	<!-- content -->
+	<s:Group id="contentGroup" minWidth="0" minHeight="0" left="0" right="0">
+		<s:layout>
+			<s:HorizontalLayout gap="0" horizontalAlign="left" verticalAlign="middle" />
+		</s:layout>
+	</s:Group>
+</s:Skin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="org.github.material.Button"/>
+    <classEntry path="org.github.material.MaterialUtils"/>
+    <classEntry path="org.github.material.Toolbar"/>
+    <classEntry path="org.github.material.skins.ButtonSkin"/>
+    <classEntry path="org.github.material.skins.NavigationButton"/>
+    <classEntry path="org.github.material.skins.ToolbarSkin"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="assets/fonts/Roboto-Medium.ttf" sourcePath="../assets/fonts/Roboto-Medium.ttf"/>
+    <resourceEntry destPath="assets/fonts/Roboto-Regular.ttf" sourcePath="../assets/fonts/Roboto-Regular.ttf"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

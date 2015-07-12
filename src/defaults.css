@@ -1,0 +1,29 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace material "org.github.material.*";
+
+@font-face {
+	src:url("assets/fonts/Roboto-Regular.ttf");
+	fontFamily: RobotoRegular;
+	embedAsCFF: true;
+}
+
+@font-face {
+	src:url("assets/fonts/Roboto-Medium.ttf");
+	fontFamily: RobotoMedium;
+	embedAsCFF: true;
+}
+
+material|Button {
+	skinClass: ClassReference("org.github.material.skins.ButtonSkin");
+	buttonColor: "#ffffff";
+	fontFamily: "RobotoMedium";
+	fontSize: "14sp";
+	typographicCase: uppercase;
+	color: "#ffffff";
+}
+
+material|Toolbar {
+	skinClass: ClassReference("org.github.material.skins.ToolbarSkin");
+}

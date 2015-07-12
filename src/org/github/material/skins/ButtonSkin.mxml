@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		xmlns:fb="http://ns.adobe.com/flashbuilder/2009">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("org.github.material.Button")]
+	</fx:Metadata>
+	
+	<fx:Declarations>
+		<s:DropShadowFilter id="dropShadow" quality="1" color="#000000" alpha="0.8" distance="0" blurX="{MaterialUtils.dp2px(8)}" blurY="{MaterialUtils.dp2px(8)}" strength="1" />
+	</fx:Declarations>
+	
+	<s:transitions>
+		<s:Transition fromState="up" toState="over">
+			<s:Animate target="{background_color_over}" duration="80">
+				<s:SimpleMotionPath property="alpha" valueTo="0.1" />
+			</s:Animate>
+		</s:Transition>
+		
+		<s:Transition fromState="*" toState="up">
+			<s:Parallel duration="80">
+				<s:Animate target="{background_color_over}">
+					<s:SimpleMotionPath property="alpha" valueTo="0" />
+				</s:Animate>
+				
+				<s:Animate target="{background_color_down}">
+					<s:SimpleMotionPath property="alpha" valueTo="0" />
+				</s:Animate>
+			</s:Parallel>
+		</s:Transition>
+		
+		<s:Transition fromState="over" toState="down">
+			<s:Animate target="{background_color_down}" duration="80">
+				<s:SimpleMotionPath property="alpha" valueTo="0.4" />
+			</s:Animate>
+		</s:Transition>
+		
+		<s:Transition fromState="down" toState="over">
+			<s:Animate target="{background_color_down}" duration="80">
+				<s:SimpleMotionPath property="alpha" valueTo="0" />
+			</s:Animate>
+		</s:Transition>
+	</s:transitions>
+	
+	<fx:Script fb:purpose="styling">
+		<![CDATA[
+			import org.github.material.MaterialUtils;
+			
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
+				background_color.color = MaterialUtils.strcolor2uint(getStyle("buttonColor"));
+				if(MaterialUtils.useWhite(background_color.color)) {
+					background_color_down.color = 0xffffff;
+					background_color_over.color = 0xffffff;
+				}
+				else {
+					background_color_down.color = 0x000000;
+					background_color_over.color = 0x000000;
+				}
+
+				setStyle("fontSize", MaterialUtils.sp2px(getStyle("fontSize")));
+				
+				super.updateDisplayList(unscaledWidth, unscaledHeight);
+			}
+			
+			override protected function stateChanged(oldState:String, newState:String, recursive:Boolean):void {
+				super.stateChanged(oldState, newState, recursive);
+				invalidateDisplayList();
+			}
+		]]>
+	</fx:Script>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="disabled" />
+		<s:State name="down" />
+		<s:State name="over" />
+		<s:State name="up" />
+	</s:states>
+	
+	<!-- touch target -->
+	<s:Rect left="0" right="0" top="0" bottom="0">
+		<s:fill>
+			<s:SolidColor alpha="0" />
+		</s:fill>
+	</s:Rect>
+	
+	<!-- drop shadow -->
+	<s:Rect left="{MaterialUtils.dp2px(10)}" right="{MaterialUtils.dp2px(10)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+		<s:filters>
+			<s:DropShadowFilter 
+				blurX="{MaterialUtils.dp2px(3)}" blurY="{MaterialUtils.dp2px(3)}" 
+				alpha="0.32" 
+				distance="{MaterialUtils.dp2px(3)}" 
+				angle="90"                 
+				knockout="true"/>
+		</s:filters>
+		<s:fill>
+			<s:SolidColor color="0x000000"/>
+		</s:fill>
+	</s:Rect>
+	
+	<!-- background -->
+	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+		<s:fill>
+			<s:SolidColor id="background_color" alpha="1" />
+		</s:fill>
+	</s:Rect>
+	
+	<!-- over -->
+	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+		<s:fill>
+			<s:SolidColor id="background_color_over" alpha="0" />
+		</s:fill>
+	</s:Rect>
+	
+	<!-- text -->
+	<s:Label id="labelDisplay" left="{MaterialUtils.dp2px(16)}" right="{MaterialUtils.dp2px(16)}" top="{MaterialUtils.dp2px(8)}" bottom="{MaterialUtils.dp2px(6)}" textAlign="center" verticalAlign="middle" />
+	
+	<!-- down -->
+	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+		<s:fill>
+			<s:SolidColor id="background_color_down" alpha="0" />
+		</s:fill>
+	</s:Rect>
+	
+</s:Skin>
