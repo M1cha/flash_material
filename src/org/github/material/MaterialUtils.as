@@ -67,7 +67,7 @@ package org.github.material  {
 		}
 		
 		public static function useWhite(color:uint):Boolean {
-			trace(colorBrightness(color));
+			//trace(colorBrightness(color)); nerv trace :P
 			return colorBrightness(color) < 100;
 		}
 	}
