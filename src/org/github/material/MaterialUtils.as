@@ -49,8 +49,6 @@ package org.github.material  {
 		public static function colorBrightness(colour:uint):Number
 		{
 			var rgb:Array = HexToRGB(colour);
-			
-			//return Math.sqrt((rgb[0] * rgb[0] * 0.241) + (rgb[1] * rgb[1] * 0.691) + (rgb[2] * rgb[2] * 0.068) ) / 255;
 			return ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000;
 		}
 		
@@ -67,7 +65,6 @@ package org.github.material  {
 		}
 		
 		public static function useWhite(color:uint):Boolean {
-			//trace(colorBrightness(color)); nerv trace :P
 			return colorBrightness(color) < 100;
 		}
 	}
