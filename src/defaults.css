@@ -35,3 +35,7 @@ material|TwoLineListItem {
 	skinClass: ClassReference("org.github.material.skins.TwoLineListItemSkin");
 	backgroundColor: "#ffffff";
 }
+
+s|VScrollBar {
+	skinClass: ClassReference("org.github.material.skins.VScrollBarSkin");
+}
