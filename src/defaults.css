@@ -30,3 +30,8 @@ material|Button {
 material|Toolbar {
 	skinClass: ClassReference("org.github.material.skins.ToolbarSkin");
 }
+
+material|TwoLineListItem {
+	skinClass: ClassReference("org.github.material.skins.TwoLineListItemSkin");
+	backgroundColor: "#ffffff";
+}

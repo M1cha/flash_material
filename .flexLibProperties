@@ -7,10 +7,11 @@
     <classEntry path="org.github.material.skins.ButtonSkin"/>
     <classEntry path="org.github.material.skins.NavigationButton"/>
     <classEntry path="org.github.material.skins.ToolbarSkin"/>
+    <classEntry path="org.github.material.TwoLineListItem"/>
   </includeClasses>
   <includeResources>
-    <resourceEntry destPath="assets/fonts/Roboto-Medium.ttf" sourcePath="../assets/fonts/Roboto-Medium.ttf"/>
     <resourceEntry destPath="assets/fonts/Roboto-Regular.ttf" sourcePath="../assets/fonts/Roboto-Regular.ttf"/>
+    <resourceEntry destPath="assets/fonts/Roboto-Medium.ttf" sourcePath="../assets/fonts/Roboto-Medium.ttf"/>
   </includeResources>
   <namespaceManifests/>
 </flexLibProperties>
