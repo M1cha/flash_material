@@ -49,7 +49,11 @@
 			import org.github.material.MaterialUtils;
 			
 			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
+				var raised:Boolean = getStyle("raised");
+				var corner_radius:Number = MaterialUtils.dp2px(getStyle("cornerRadius"));
+				var nomargin:Boolean = getStyle("nomargin");
 				background_color.color = MaterialUtils.strcolor2uint(getStyle("buttonColor"));
+				
 				if(MaterialUtils.useWhite(background_color.color)) {
 					background_color_down.color = 0xffffff;
 					background_color_over.color = 0xffffff;
@@ -60,6 +64,33 @@
 				}
 
 				setStyle("fontSize", MaterialUtils.sp2px(getStyle("fontSize")));
+				shadow.visible = raised;
+				
+				shadow.radiusX = corner_radius;
+				shadow.radiusY = corner_radius;
+				background.radiusX = corner_radius;
+				background.radiusY = corner_radius;
+				over.radiusX = corner_radius;
+				over.radiusY = corner_radius;
+				down.radiusX = corner_radius;
+				down.radiusY = corner_radius;
+				
+				if(nomargin) {
+					background.left = 0;
+					background.top = 0;
+					background.right = 0;
+					background.bottom = 0;
+					
+					over.left = 0;
+					over.top = 0;
+					over.right = 0;
+					over.bottom = 0;
+					
+					down.left = 0;
+					down.top = 0;
+					down.right = 0;
+					down.bottom = 0;
+				}
 				
 				super.updateDisplayList(unscaledWidth, unscaledHeight);
 			}
@@ -87,7 +118,7 @@
 	</s:Rect>
 	
 	<!-- drop shadow -->
-	<s:Rect left="{MaterialUtils.dp2px(10)}" right="{MaterialUtils.dp2px(10)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+	<s:Rect id="shadow" left="{MaterialUtils.dp2px(10)}" right="{MaterialUtils.dp2px(10)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}">
 		<s:filters>
 			<s:DropShadowFilter 
 				blurX="{MaterialUtils.dp2px(3)}" blurY="{MaterialUtils.dp2px(3)}" 
@@ -102,14 +133,14 @@
 	</s:Rect>
 	
 	<!-- background -->
-	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+	<s:Rect id="background" left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}">
 		<s:fill>
 			<s:SolidColor id="background_color" alpha="1" />
 		</s:fill>
 	</s:Rect>
 	
 	<!-- over -->
-	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+	<s:Rect id="over" left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}">
 		<s:fill>
 			<s:SolidColor id="background_color_over" alpha="0" />
 		</s:fill>
@@ -119,7 +150,7 @@
 	<s:Label id="labelDisplay" left="{MaterialUtils.dp2px(16)}" right="{MaterialUtils.dp2px(16)}" top="{MaterialUtils.dp2px(8)}" bottom="{MaterialUtils.dp2px(6)}" textAlign="center" verticalAlign="middle" />
 	
 	<!-- down -->
-	<s:Rect left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}" radiusX="{MaterialUtils.dp2px(3)}" radiusY="{MaterialUtils.dp2px(3)}">
+	<s:Rect id="down" left="{MaterialUtils.dp2px(8)}" right="{MaterialUtils.dp2px(8)}" top="{MaterialUtils.dp2px(6)}" bottom="{MaterialUtils.dp2px(6)}">
 		<s:fill>
 			<s:SolidColor id="background_color_down" alpha="0" />
 		</s:fill>

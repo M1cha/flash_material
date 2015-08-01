@@ -22,6 +22,9 @@ material|Button {
 	fontSize: "14sp";
 	typographicCase: uppercase;
 	color: "#ffffff";
+	raised: true;
+	cornerRadius: 3;
+	nomargin: false;
 }
 
 material|Toolbar {
