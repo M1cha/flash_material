@@ -31,6 +31,10 @@ material|Toolbar {
 	skinClass: ClassReference("org.github.material.skins.ToolbarSkin");
 }
 
+material|NavigationDrawer {
+	skinClass: ClassReference("org.github.material.skins.NavigationDrawerSkin");
+}
+
 material|TwoLineListItem {
 	skinClass: ClassReference("org.github.material.skins.TwoLineListItemSkin");
 	backgroundColor: "#ffffff";

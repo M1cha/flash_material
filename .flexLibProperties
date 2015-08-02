@@ -8,6 +8,7 @@
     <classEntry path="org.github.material.skins.NavigationButton"/>
     <classEntry path="org.github.material.skins.ToolbarSkin"/>
     <classEntry path="org.github.material.TwoLineListItem"/>
+    <classEntry path="org.github.material.NavigationDrawer"/>
   </includeClasses>
   <includeResources>
     <resourceEntry destPath="assets/fonts/Roboto-Regular.ttf" sourcePath="../assets/fonts/Roboto-Regular.ttf"/>
