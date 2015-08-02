@@ -15,6 +15,7 @@ package org.github.material
 		public var obfuscator:Panel = null;
 		public var container:Group = null;
 		public var dropShadow:DropShadowFilter = null;
+		private var _hidden:Boolean = true;
 		
 		public function NavigationDrawer()
 		{
@@ -26,7 +27,7 @@ package org.github.material
 		public function fadeIn(duration:uint = 170):void {
 			var move:Move = new Move();
 			move.duration = duration;
-			move.xFrom = container.x;
+			move.xFrom = -(container.width + dropShadow.blurX);
 			move.xTo = 0;
 			
 			var fade:Fade = new Fade();
@@ -37,6 +38,7 @@ package org.github.material
 			obfuscator.visible = true;
 			move.play([container]);
 			fade.play([obfuscator]);
+			_hidden = false;
 		}
 		
 		public function fadeOut(duration:uint = 170):void {
@@ -51,11 +53,16 @@ package org.github.material
 			fade.alphaTo = 0;
 			fade.addEventListener(EffectEvent.EFFECT_END, function():void{
 				obfuscator.visible = false;
+				_hidden = true;
 			});
 			
 			obfuscator.visible = true;
 			move.play([container]);
 			fade.play([obfuscator]);
+		}
+		
+		public function get hidden():Boolean {
+			return _hidden;
 		}
 	}
 }

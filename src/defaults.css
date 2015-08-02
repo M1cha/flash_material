@@ -40,6 +40,10 @@ material|TwoLineListItem {
 	backgroundColor: "#ffffff";
 }
 
+material|NavigationButton {
+	skinClass: ClassReference("org.github.material.skins.NavigationButtonSkin");
+}
+
 s|VScrollBar {
 	skinClass: ClassReference("org.github.material.skins.VScrollBarSkin");
 }

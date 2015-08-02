@@ -14,6 +14,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.events.ResizeEvent;
+			
 			import org.github.material.MaterialUtils;
 			
 			private function onCreationComplete():void {
@@ -23,6 +25,12 @@
 				hostComponent.dropShadow = dropShadow;
 				
 				container.x = -(container.width + dropShadow.blurX);
+				container.addEventListener(ResizeEvent.RESIZE, function():void{
+					if(hostComponent.hidden)
+						container.x = -(container.width + dropShadow.blurX);
+					else
+						container.x = 0;
+				});
 			}
 		]]>
 	</fx:Script>

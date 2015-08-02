@@ -33,13 +33,10 @@
 		</s:fill>
 	</s:Rect>
 	
-	<!-- text -->
-	<s:Label id="titleDisplay" left="{MaterialUtils.dp2px(72)}" right="0" top="{MaterialUtils.dp2px(6)}" bottom="0" textAlign="left" verticalAlign="middle" fontFamily="RobotoMedium" fontSize="{MaterialUtils.dp2px(20)}" />
-	
 	<!-- content -->
-	<s:Group id="contentGroup" minWidth="0" minHeight="0" left="0" right="0">
+	<s:Group id="contentGroup" width="100%" minHeight="0" left="0" right="0">
 		<s:layout>
-			<s:HorizontalLayout gap="0" horizontalAlign="left" verticalAlign="middle" />
+			<s:BasicLayout />
 		</s:layout>
 	</s:Group>
 </s:Skin>
